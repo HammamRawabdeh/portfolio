@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       projects.html — Projects Page
+       Displays portfolio projects as responsive cards.
+       Each card contains: title, description, tech stack,
+       image gallery, optional video embed, and project link.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by [Hammam Rawabdeh] — portfolio of software and engineering work." />
+  <title>Projects — Hammam Rawabdeh</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION BAR (consistent across all pages)
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Hammam<span>.</span>Rawabdeh</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ----------------------------------------------------------
+         PAGE HERO BANNER
+         Introduces the projects section with title and description.
+    ---------------------------------------------------------- -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label fade-in">02 / Work</p>
+        <h1 class="fade-in">Projects</h1>
+        <p class="fade-in">
+          A selection of software and engineering projects — from web apps
+          to embedded systems. Each built with purpose and attention to craft.
+        </p>
+      </div>
+    </header>
+
+    <!-- ----------------------------------------------------------
+         PROJECTS GRID
+         Responsive CSS Grid. Each .project-card is a .card.
+         Add or duplicate cards as needed for your own projects.
+    ---------------------------------------------------------- -->
+    <section class="page-section" aria-label="Project list">
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- ================================================
+               PROJECT CARD 1
+               Replace placeholder text with your real project.
+               ================================================ -->
+          <article class="card project-card fade-in">
+
+            <!-- Project screenshot — replace src with your image path -->
+            <!-- <img class="card-image" src="assets/images/project1.png" alt="Screenshot of Project Alpha" /> -->
+            <!-- Placeholder shown when no image is available -->
+            <div class="img-placeholder" aria-hidden="true">[ Screenshot ]</div>
+
+            <div class="card-body">
+
+              <!-- Project number + title -->
+              <div>
+                <span class="label">Project 01</span>
+                <h2 class="project-title">Project Alpha</h2>
+              </div>
+
+              <!-- Short description -->
+              <p class="project-desc">
+                A full-stack web application for managing student schedules.
+                Features real-time updates, drag-and-drop UI, and REST API backend
+                with JWT authentication.
+              </p>
+
+              <!-- Tech stack chips -->
+              <div class="tech-stack" aria-label="Technologies used">
+                <span class="tech-chip">React</span>
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">PostgreSQL</span>
+                <span class="tech-chip">Docker</span>
+              </div>
+
+              <!-- Optional: Video demo embed -->
+              <!-- Uncomment and replace the src with your YouTube/Vimeo embed URL -->
+              <!--
+              <div class="project-video">
+                <iframe
+                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                  title="Project Alpha demo video"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              -->
+
+              <!-- Project link button -->
+              <a
+                href="https://github.com/yourusername/project-alpha"
+                class="btn btn-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+
+            </div>
+          </article>
+          <!-- END PROJECT CARD 1 -->
+
+          <!-- ================================================
+               PROJECT CARD 2
+               ================================================ -->
+          <article class="card project-card fade-in">
+
+            <div class="img-placeholder" aria-hidden="true">[ Screenshot ]</div>
+
+            <div class="card-body">
+
+              <div>
+                <span class="label">Project 02</span>
+                <h2 class="project-title">Smart Sensor Hub</h2>
+              </div>
+
+              <p class="project-desc">
+                An IoT data aggregation platform built on STM32 microcontrollers.
+                Collects temperature, humidity, and motion data and streams it
+                to a cloud dashboard with configurable alert thresholds.
+              </p>
+
+              <div class="tech-stack" aria-label="Technologies used">
+                <span class="tech-chip">C / C++</span>
+                <span class="tech-chip">STM32</span>
+                <span class="tech-chip">MQTT</span>
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Grafana</span>
+              </div>
+
+              <a
+                href="https://github.com/yourusername/smart-sensor-hub"
+                class="btn btn-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+
+            </div>
+          </article>
+          <!-- END PROJECT CARD 2 -->
+
+          <!-- ================================================
+               PROJECT CARD 3
+               ================================================ -->
+          <article class="card project-card fade-in">
+
+            <div class="img-placeholder" aria-hidden="true">[ Screenshot ]</div>
+
+            <div class="card-body">
+
+              <div>
+                <span class="label">Project 03</span>
+                <h2 class="project-title">AI Study Assistant</h2>
+              </div>
+
+              <p class="project-desc">
+                A conversational study assistant powered by a fine-tuned language
+                model. Generates practice questions, summarizes lecture notes,
+                and tracks student progress over time.
+              </p>
+
+              <div class="tech-stack" aria-label="Technologies used">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">FastAPI</span>
+                <span class="tech-chip">OpenAI API</span>
+                <span class="tech-chip">Next.js</span>
+              </div>
+
+              <!-- Example of video embed — keep commented until you have a real URL -->
+              <!--
+              <div class="project-video">
+                <iframe
+                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                  title="AI Study Assistant demo"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              -->
+
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="https://github.com/yourusername/ai-study-assistant" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+                <a href="https://your-live-demo.com" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  Live Demo
+                </a>
+              </div>
+
+            </div>
+          </article>
+          <!-- END PROJECT CARD 3 -->
+
+          <!-- ================================================
+               PROJECT CARD 4
+               ================================================ -->
+          <article class="card project-card fade-in">
+
+            <div class="img-placeholder" aria-hidden="true">[ Screenshot ]</div>
+
+            <div class="card-body">
+
+              <div>
+                <span class="label">Project 04</span>
+                <h2 class="project-title">Campus Event Platform</h2>
+              </div>
+
+              <p class="project-desc">
+                A university event management system allowing clubs to post,
+                manage, and promote events. Includes role-based access, RSVP
+                tracking, and email notification pipelines.
+              </p>
+
+              <div class="tech-stack" aria-label="Technologies used">
+                <span class="tech-chip">Django</span>
+                <span class="tech-chip">React</span>
+                <span class="tech-chip">Redis</span>
+                <span class="tech-chip">Celery</span>
+                <span class="tech-chip">AWS S3</span>
+              </div>
+
+              <a href="https://github.com/yourusername/campus-events" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                View on GitHub
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+
+            </div>
+          </article>
+          <!-- END PROJECT CARD 4 -->
+
+        </div>
+        <!-- END projects-grid -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (consistent across all pages)
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+        <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       leadership.html — Leadership & Experience Page
+       Displays leadership roles, club involvement,
+       event management, and community service.
+       Uses a vertical timeline layout.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Leadership and experience of [Hammam Rawabdeh]." />
+  <title>Leadership — Hammam Rawabdeh</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <a href="index.html" class="nav-logo">Hammam<span>.</span>Rawabdeh</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ----------------------------------------------------------
+         PAGE HERO BANNER
+    ---------------------------------------------------------- -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label fade-in">05 / Experience</p>
+        <h1 class="fade-in">Leadership &amp; Experience</h1>
+        <p class="fade-in">
+          Roles, responsibilities, and impact — inside the university and beyond.
+        </p>
+      </div>
+    </header>
+
+    <!-- ----------------------------------------------------------
+         TIMELINE SECTION
+         Vertical timeline. Each .timeline-item is one experience.
+         Includes: role, organization, description, achievements.
+         Add / remove items as needed.
+    ---------------------------------------------------------- -->
+    <section class="page-section" aria-labelledby="experience-heading">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 id="experience-heading">Timeline</h2>
+        </div>
+
+        <div class="timeline">
+
+          <!-- ================================================
+               EXPERIENCE 1 — Student Club
+               ================================================ -->
+          <article class="timeline-item fade-in">
+
+            <header class="timeline-header">
+              <h3 class="timeline-role">President</h3>
+              <span class="timeline-org">IEEE Student Branch — University of [Your University]</span>
+              <span class="label" style="margin-left:auto;">2024 – Present</span>
+            </header>
+
+            <p class="timeline-desc">
+              Lead a 60-member engineering student branch, coordinating technical workshops,
+              industry networking events, and community outreach programs. Responsible for
+              strategic planning, budget management, and inter-branch collaboration.
+            </p>
+
+            <!-- Key achievements as bullet list -->
+            <ul class="timeline-achievements" aria-label="Key achievements">
+              <li>Grew branch membership by 40% in one academic year through targeted outreach campaigns.</li>
+              <li>Organized 12 technical workshops on topics including embedded systems, web dev, and AI.</li>
+              <li>Established partnerships with 3 local tech companies for internship referral programs.</li>
+              <li>Won Best Student Branch award at the regional IEEE conference.</li>
+            </ul>
+
+          </article>
+          <!-- END EXPERIENCE 1 -->
+
+          <!-- ================================================
+               EXPERIENCE 2 — National Event
+               ================================================ -->
+          <article class="timeline-item fade-in">
+
+            <header class="timeline-header">
+              <h3 class="timeline-role">National Hackathon Organizer</h3>
+              <span class="timeline-org">TechFest National Committee</span>
+              <span class="label" style="margin-left:auto;">2023</span>
+            </header>
+
+            <p class="timeline-desc">
+              Co-organized a 500-participant national hackathon covering logistics,
+              participant communications, judging criteria design, and live event operations
+              across a 48-hour event with 12 competing teams.
+            </p>
+
+            <ul class="timeline-achievements" aria-label="Key achievements">
+              <li>Coordinated a 25-person volunteer team across 3 shifts during the event.</li>
+              <li>Managed sponsor relationships totaling $15,000 in prizes and resources.</li>
+              <li>Designed judging rubric adopted by subsequent national events.</li>
+              <li>Post-event satisfaction survey: 94% of participants rated the event 4/5 or above.</li>
+            </ul>
+
+          </article>
+          <!-- END EXPERIENCE 2 -->
+
+          <!-- ================================================
+               EXPERIENCE 3 — Community Service
+               ================================================ -->
+          <article class="timeline-item fade-in">
+
+            <header class="timeline-header">
+              <h3 class="timeline-role">Community Service Director</h3>
+              <span class="timeline-org">University Volunteer Office</span>
+              <span class="label" style="margin-left:auto;">2022 – 2023</span>
+            </header>
+
+            <p class="timeline-desc">
+              Managed the university's community service program, connecting students
+              with local NGOs, schools, and civic organizations. Coordinated volunteer
+              placements and impact reporting for the department's annual review.
+            </p>
+
+            <ul class="timeline-achievements" aria-label="Key achievements">
+              <li>Facilitated 1,200+ total volunteer hours across 80 students in one semester.</li>
+              <li>Launched a coding literacy program for 40 middle school students in underserved areas.</li>
+              <li>Built a web-based volunteer tracking dashboard (Django + React) used by the office.</li>
+              <li>Presented program outcomes to university board — program budget increased by 25%.</li>
+            </ul>
+
+          </article>
+          <!-- END EXPERIENCE 3 -->
+
+          <!-- ================================================
+               EXPERIENCE 4 — Teaching / Mentorship
+               ================================================ -->
+          <article class="timeline-item fade-in">
+
+            <header class="timeline-header">
+              <h3 class="timeline-role">Teaching Assistant — Data Structures</h3>
+              <span class="timeline-org">Department of Computer Engineering</span>
+              <span class="label" style="margin-left:auto;">2023 – 2024</span>
+            </header>
+
+            <p class="timeline-desc">
+              Assisted the lead professor in delivering a second-year data structures course
+              for 90 students. Held weekly office hours, graded assignments, and created
+              supplementary learning materials.
+            </p>
+
+            <ul class="timeline-achievements" aria-label="Key achievements">
+              <li>Designed 5 original programming assignments increasing in complexity.</li>
+              <li>Held 3 hours of weekly office hours; maintained a 15-minute average wait time.</li>
+              <li>Produced a visual explainer for binary trees that was added to course materials permanently.</li>
+            </ul>
+
+          </article>
+          <!-- END EXPERIENCE 4 -->
+
+        </div>
+        <!-- END timeline -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+        <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

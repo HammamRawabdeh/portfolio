@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       index.html — Home Page
+       Portfolio website — main entry point.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of [Hammam Rawabdeh] — Software Engineering Student" />
+  <title>Hammam Rawabdeh — Portfolio</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR (thin gold line at top, filled by JS)
+       ============================================================ -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       Fixed at top. Logo on left, page links on right.
+       Mobile hamburger replaces links on small screens.
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+
+      <!-- Logo / Name -->
+      <a href="index.html" class="nav-logo">
+        Hammam<span>.</span>Rawabdeh
+      </a>
+
+      <!-- Desktop + Mobile nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button (visible on mobile only) -->
+      <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main>
+
+    <!-- ----------------------------------------------------------
+         HERO SECTION
+         Full-viewport opening section with name, title, and CTAs.
+    ---------------------------------------------------------- -->
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="container">
+        <div class="hero-content">
+
+          <!-- Eyebrow label -->
+          <div class="hero-eyebrow fade-in">
+            <span class="label">Portfolio</span>
+          </div>
+
+          <!-- Full name — update with your actual name -->
+          <h1 class="hero-name fade-in" id="hero-name">
+            <span class="highlight">Your</span> Name
+          </h1>
+
+          <!-- Professional title -->
+          <p class="hero-title fade-in">
+            Software Engineering Student
+          </p>
+
+          <!-- University + graduation info -->
+          <p class="hero-meta fade-in">
+            University of [Your University]
+            <span>·</span>
+            Expected Graduation: May 2026
+          </p>
+
+          <!-- Short introduction paragraph -->
+          <p class="hero-intro fade-in">
+            Passionate about building elegant, scalable software solutions.
+            I specialize in full-stack development, embedded systems, and
+            turning complex problems into clean, user-friendly experiences.
+          </p>
+
+          <!-- Call-to-action buttons -->
+          <div class="hero-buttons fade-in">
+
+            <!-- View Projects -->
+            <a href="projects.html" class="btn btn-primary">
+              View Projects
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+
+            <!-- Contact Me -->
+            <a href="contact.html" class="btn btn-secondary">
+              Contact Me
+            </a>
+
+            <!-- Download CV — links to PDF in assets/resume/ -->
+            <a
+              href="assets/resume/cv.pdf"
+              download="YourName_CV.pdf"
+              class="btn btn-ghost"
+              aria-label="Download my CV as PDF"
+            >
+              Download CV
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+            </a>
+
+          </div>
+          <!-- END CTA buttons -->
+
+        </div>
+        <!-- END hero-content -->
+
+        <!-- Decorative large number (purely visual) -->
+        <div class="hero-number" aria-hidden="true">01</div>
+
+      </div>
+    </section>
+    <!-- END HERO -->
+
+  </main>
+  <!-- END MAIN -->
+
+  <!-- ============================================================
+       FOOTER
+       Consistent across all pages.
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+        <p class="footer-copy">
+            &copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.
+        </p>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+  <!-- JavaScript (deferred for performance) -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
