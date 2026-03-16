@@ -5,25 +5,22 @@
    ============================================================ */
 
 /* ----------------------------------------------------------
-   1. GOOGLE FONTS IMPORT
-   ---------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
-
-/* ----------------------------------------------------------
-   2. CSS CUSTOM PROPERTIES (Design Tokens)
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   Note: Google Fonts is loaded via <link> in the HTML <head>
+   for better performance (avoids render-blocking @import).
    ---------------------------------------------------------- */
 :root {
   /* Colors */
-  --color-bg:          #0d0d0d;      /* near-black background */
-  --color-bg-card:     #161616;      /* slightly lighter card surface */
-  --color-bg-subtle:   #1e1e1e;      /* borders, inputs, subtle panels */
-  --color-text:        #f0ead6;      /* warm cream — primary text */
-  --color-text-muted:  #8a8070;      /* muted warm grey */
-  --color-text-dim:    #5a5248;      /* very dim text */
-  --color-accent:      #c9a84c;      /* amber gold — primary accent */
-  --color-accent-dim:  #7d6830;      /* dim gold for borders */
-  --color-accent-glow: rgba(201,168,76,.18); /* glow effect */
-  --color-white:       #ffffff;
+  --color-bg:           #0d0d0d;                    /* near-black background */
+  --color-bg-card:      #161616;                    /* slightly lighter card surface */
+  --color-bg-subtle:    #1e1e1e;                    /* borders, inputs, subtle panels */
+  --color-text:         #f0ead6;                    /* warm cream — primary text */
+  --color-text-muted:   #8a8070;                    /* muted warm grey */
+  --color-text-dim:     #5a5248;                    /* very dim text */
+  --color-accent:       #c9a84c;                    /* amber gold — primary accent */
+  --color-accent-dim:   #7d6830;                    /* dim gold for borders */
+  --color-accent-glow:  rgba(201, 168, 76, 0.18);  /* glow effect */
+  --color-white:        #ffffff;
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -38,23 +35,24 @@
   --space-xl:  4rem;
   --space-xxl: 8rem;
 
-  /* Borders */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  16px;
-  --border:     1px solid #2a2620;
+  /* Borders — single source of truth for border colour */
+  --color-border: #2a2620;
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    16px;
+  --border:       1px solid var(--color-border);
 
   /* Transitions */
-  --transition: 0.25s ease;
+  --transition:      0.25s ease;
   --transition-slow: 0.5s ease;
 
   /* Layout */
-  --max-width: 1100px;
+  --max-width:  1100px;
   --nav-height: 70px;
 }
 
 /* ----------------------------------------------------------
-   3. RESET & BASE
+   2. RESET & BASE
    ---------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -85,9 +83,7 @@ a {
   text-decoration: none;
   transition: color var(--transition);
 }
-a:hover {
-  color: var(--color-text);
-}
+a:hover { color: var(--color-text); }
 
 /* Images */
 img {
@@ -96,8 +92,17 @@ img {
 }
 
 /* Lists */
-ul, ol {
-  list-style: none;
+ul, ol { list-style: none; }
+
+/* ----------------------------------------------------------
+   3. FOCUS STYLES (Accessibility — WCAG 2.4.7)
+   Visible keyboard focus for all interactive elements.
+   Uses :focus-visible to avoid showing outlines on mouse clicks.
+   ---------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* ----------------------------------------------------------
@@ -127,9 +132,7 @@ p {
   gap: var(--space-md);
   margin-bottom: var(--space-xl);
 }
-.section-heading h2 {
-  white-space: nowrap;
-}
+.section-heading h2 { white-space: nowrap; }
 .section-heading::after {
   content: '';
   flex: 1;
@@ -161,9 +164,7 @@ main {
   padding-top: var(--nav-height); /* offset for fixed nav */
 }
 
-.page-section {
-  padding: var(--space-xxl) 0;
-}
+.page-section { padding: var(--space-xxl) 0; }
 
 /* ----------------------------------------------------------
    6. NAVIGATION BAR
@@ -175,7 +176,7 @@ main {
   right: 0;
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(13,13,13,0.85);
+  background: rgba(13, 13, 13, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: var(--border);
@@ -189,17 +190,15 @@ main {
   justify-content: space-between;
 }
 
-/* Logo / Name */
-.nav-logo {
+/* Logo / Name — specificity avoids !important on link colour */
+.navbar .nav-logo {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--color-text) !important;
+  color: var(--color-text);
   letter-spacing: 0.02em;
 }
-.nav-logo span {
-  color: var(--color-accent);
-}
+.navbar .nav-logo span { color: var(--color-accent); }
 
 /* Nav links list */
 .nav-links {
@@ -229,13 +228,9 @@ main {
   transition: width var(--transition);
 }
 .nav-links a:hover,
-.nav-links a.active {
-  color: var(--color-text);
-}
+.nav-links a.active        { color: var(--color-text); }
 .nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
+.nav-links a.active::after { width: 100%; }
 
 /* Hamburger (mobile) */
 .nav-toggle {
@@ -252,7 +247,8 @@ main {
   width: 24px;
   height: 1.5px;
   background: var(--color-text);
-  transition: all var(--transition);
+  /* Specify only the properties that change for better performance */
+  transition: transform var(--transition), opacity var(--transition);
 }
 .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -281,18 +277,13 @@ main {
   font-family: var(--font-mono);
 }
 
-.footer-links {
-  display: flex;
-  gap: var(--space-md);
-}
+.footer-links { display: flex; gap: var(--space-md); }
 .footer-links a {
   font-size: 0.8rem;
   color: var(--color-text-dim);
   transition: color var(--transition);
 }
-.footer-links a:hover {
-  color: var(--color-accent);
-}
+.footer-links a:hover { color: var(--color-accent); }
 
 /* ----------------------------------------------------------
    8. BUTTONS
@@ -309,7 +300,10 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all var(--transition);
+  /* Specific properties only — avoids triggering layout on unrelated changes */
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition);
   border: 1px solid transparent;
   text-decoration: none;
 }
@@ -362,9 +356,7 @@ main {
   transform: translateY(-4px);
 }
 
-.card-body {
-  padding: var(--space-lg);
-}
+.card-body { padding: var(--space-lg); }
 
 /* ----------------------------------------------------------
    10. PAGE-SPECIFIC: HOME (index.html)
@@ -385,8 +377,8 @@ main {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+    linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -400,7 +392,7 @@ main {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(201,168,76,.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -476,7 +468,7 @@ main {
   font-size: clamp(120px, 20vw, 220px);
   font-weight: 700;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(201,168,76,.08);
+  -webkit-text-stroke: 1px rgba(201, 168, 76, 0.08);
   user-select: none;
   pointer-events: none;
   line-height: 1;
@@ -485,7 +477,6 @@ main {
 /* ----------------------------------------------------------
    11. PAGE-SPECIFIC: PROJECTS (projects.html)
    ---------------------------------------------------------- */
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -507,7 +498,7 @@ main {
   letter-spacing: 0.1em;
 }
 
-/* Image placeholder when no image */
+/* Image placeholder when no screenshot is available */
 .project-card .img-placeholder {
   width: 100%;
   height: 200px;
@@ -551,7 +542,7 @@ main {
   letter-spacing: 0.05em;
   padding: 3px 10px;
   background: var(--color-bg-subtle);
-  border: 1px solid #2a2620;
+  border: var(--border); /* was hardcoded #2a2620 — now uses CSS variable */
   border-radius: 100px;
   color: var(--color-accent);
 }
@@ -559,7 +550,7 @@ main {
 /* Video embed */
 .project-video {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: var(--border);
@@ -610,9 +601,7 @@ main {
   padding: var(--space-lg);
   transition: border-color var(--transition);
 }
-.skill-card:hover {
-  border-color: var(--color-accent-dim);
-}
+.skill-card:hover { border-color: var(--color-accent-dim); }
 
 .skill-card-header {
   display: flex;
@@ -620,17 +609,24 @@ main {
   gap: var(--space-sm);
   margin-bottom: var(--space-lg);
 }
-.skill-icon {
-  width: 36px;
-  height: 36px;
+
+/* Shared icon style used by .skill-icon and .contact-icon */
+.skill-icon,
+.contact-icon {
   background: var(--color-accent-glow);
   border: 1px solid var(--color-accent-dim);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.skill-icon {
+  width: 36px;
+  height: 36px;
   font-size: 1rem;
 }
+
 .skill-card h3 {
   font-size: 1rem;
   font-weight: 600;
@@ -658,9 +654,7 @@ main {
 }
 
 /* Certifications section */
-.certs-section {
-  margin-top: var(--space-xxl);
-}
+.certs-section { margin-top: var(--space-xxl); }
 
 .certs-dl {
   display: grid;
@@ -673,25 +667,14 @@ main {
   color: var(--color-text);
   margin-bottom: var(--space-sm);
 }
-.certs-dl dd {
-  margin: 0;
-}
-.cert-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  border: var(--border);
-  background: var(--color-bg-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-dim);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-}
+.certs-dl dd { margin: 0; }
 
-/* Cert image placeholder */
+/*
+  Merged .cert-img + .cert-placeholder — both share identical dimensions
+  and decoration. Use .cert-media as the shared base class.
+  .cert-placeholder kept as an alias for backward compatibility.
+*/
+.cert-media,
 .cert-placeholder {
   width: 100%;
   height: 160px;
@@ -707,6 +690,14 @@ main {
   letter-spacing: 0.08em;
 }
 
+/* When a real image is present, use object-fit */
+.cert-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
 /* ----------------------------------------------------------
    14. PAGE-SPECIFIC: LEADERSHIP (leadership.html)
    ---------------------------------------------------------- */
@@ -718,7 +709,7 @@ main {
   padding-left: 40px;
 }
 
-/* Vertical line */
+/* Vertical connecting line */
 .timeline::before {
   content: '';
   position: absolute;
@@ -773,9 +764,7 @@ main {
   margin-bottom: var(--space-md);
 }
 
-.timeline-achievements {
-  padding-left: var(--space-md);
-}
+.timeline-achievements { padding-left: var(--space-md); }
 .timeline-achievements li {
   font-size: 0.85rem;
   color: var(--color-text-muted);
@@ -843,17 +832,14 @@ main {
   color: inherit;
 }
 
+/* .contact-icon shares base styles with .skill-icon (declared above) */
 .contact-icon {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background: var(--color-accent-glow);
-  border: 1px solid var(--color-accent-dim);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.3rem;
 }
+
 .contact-card h3 {
   font-size: 1.05rem;
   font-family: var(--font-display);
@@ -869,31 +855,52 @@ main {
   margin-top: auto;
   transition: transform var(--transition);
 }
-.contact-card:hover .contact-arrow {
-  transform: translateX(4px);
-}
+.contact-card:hover .contact-arrow { transform: translateX(4px); }
 
 /* ----------------------------------------------------------
    17. FADE-IN ANIMATION
-   Used by JavaScript on page load (class added by JS)
+   Triggered by JavaScript via the .visible class.
+   Respects user's motion preferences.
    ---------------------------------------------------------- */
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  /* Promote to composite layer during animation to avoid layout thrashing */
+  will-change: opacity, transform;
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+  /* Release the composite hint once animation completes */
+  will-change: auto;
 }
 
-/* Stagger delays (applied by JS or directly) */
+/* Stagger delays */
 .fade-in:nth-child(1) { transition-delay: 0.0s; }
 .fade-in:nth-child(2) { transition-delay: 0.1s; }
 .fade-in:nth-child(3) { transition-delay: 0.2s; }
 .fade-in:nth-child(4) { transition-delay: 0.3s; }
 .fade-in:nth-child(5) { transition-delay: 0.4s; }
 .fade-in:nth-child(6) { transition-delay: 0.5s; }
+
+/* Honour user preference — disable all animations & transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
 
 /* ----------------------------------------------------------
    18. PAGE HERO BANNER (used on inner pages)
@@ -912,18 +919,12 @@ main {
   right: 0;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle at bottom right, rgba(201,168,76,.06), transparent 70%);
+  background: radial-gradient(circle at bottom right, rgba(201, 168, 76, 0.06), transparent 70%);
   pointer-events: none;
 }
-.page-hero .label {
-  margin-bottom: var(--space-md);
-}
-.page-hero h1 {
-  margin-bottom: var(--space-md);
-}
-.page-hero p {
-  font-size: 1.05rem;
-}
+.page-hero .label { margin-bottom: var(--space-md); }
+.page-hero h1    { margin-bottom: var(--space-md); }
+.page-hero p     { font-size: 1.05rem; }
 
 /* ----------------------------------------------------------
    19. SCROLL PROGRESS BAR
@@ -956,7 +957,7 @@ main {
 @media (max-width: 640px) {
   :root {
     --space-xxl: 4rem;
-    --space-xl: 2.5rem;
+    --space-xl:  2.5rem;
   }
 
   /* Mobile nav — links hidden until toggled */
@@ -973,37 +974,21 @@ main {
     gap: var(--space-lg);
     align-items: flex-start;
   }
-  .nav-links.open {
-    display: flex;
-  }
+  .nav-links.open { display: flex; }
 
-  .nav-toggle {
-    display: flex;
-  }
+  .nav-toggle { display: flex; }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+  .projects-grid,
+  .skills-grid,
+  .contact-grid { grid-template-columns: 1fr; }
 
   .hero-buttons {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .timeline {
-    padding-left: 24px;
-  }
-  .timeline-item::before {
-    left: -20px;
-  }
+  .timeline { padding-left: 24px; }
+  .timeline-item::before { left: -20px; }
 
   .footer .container {
     flex-direction: column;

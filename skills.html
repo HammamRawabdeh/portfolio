@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ============================================================
-       skills.html — Skills Page
-       Displays technical skills organized into categories using
-       HTML <dl> (Description Lists) as required.
-       Also includes a Certifications section with images.
-       ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Technical skills and certifications of [Hammam Rawabdeh]." />
+  <meta name="description" content="Technical skills and certifications of Hammam Rawabdeh." />
+  <meta name="theme-color" content="#0d0d0d" />
+
   <title>Skills — Hammam Rawabdeh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -18,9 +18,6 @@
 
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <!-- ============================================================
-       NAVIGATION BAR
-       ============================================================ -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <a href="index.html" class="nav-logo">Hammam<span>.</span>Rawabdeh</a>
@@ -28,7 +25,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a href="skills.html">Skills</a></li>
+        <li><a href="skills.html" class="active" aria-current="page">Skills</a></li>
         <li><a href="leadership.html">Leadership</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -41,9 +38,6 @@
 
   <main>
 
-    <!-- ----------------------------------------------------------
-         PAGE HERO BANNER
-    ---------------------------------------------------------- -->
     <header class="page-hero">
       <div class="container">
         <p class="label fade-in">04 / Skills</p>
@@ -55,11 +49,6 @@
       </div>
     </header>
 
-    <!-- ----------------------------------------------------------
-         SKILLS CATEGORIES SECTION
-         Each category is a .skill-card containing a <dl> list.
-         <dt> = skill name | <dd> = short description
-    ---------------------------------------------------------- -->
     <section class="page-section" aria-labelledby="skills-heading">
       <div class="container">
 
@@ -69,213 +58,110 @@
 
         <div class="skills-grid">
 
-          <!-- ================================================
-               CATEGORY: PROGRAMMING LANGUAGES
-               ================================================ -->
           <div class="skill-card fade-in">
             <div class="skill-card-header">
               <div class="skill-icon" aria-hidden="true">〈〉</div>
               <h3>Programming Languages</h3>
             </div>
-
-            <!-- Description list: dt = skill name, dd = description -->
             <dl class="skills-dl">
-
-              <dt>Python</dt>
-              <dd>Primary language for scripting, automation, data analysis, and backend development.</dd>
-
-              <dt>C / C++</dt>
-              <dd>Used for embedded systems programming, microcontroller firmware, and performance-critical applications.</dd>
-
-              <dt>JavaScript</dt>
-              <dd>Frontend and backend (Node.js) development; familiarity with ES6+ features.</dd>
-
+              <dt>C++</dt>
+              <dd>Strong proficiency; used in modular robotic systems, low-level architecture, and high-performance algorithms.</dd>
+              <dt>PHP &amp; JavaScript</dt>
+              <dd>Intermediate knowledge; used for backend logic, secure authentication, and dynamic web dashboards.</dd>
+              <dt>Dart</dt>
+              <dd>Utilized for cross-platform mobile development with the Flutter framework.</dd>
               <dt>Java</dt>
-              <dd>Object-oriented programming coursework; Android app development basics.</dd>
-
-              <dt>SQL</dt>
-              <dd>Relational database queries, schema design, and optimization.</dd>
-
+              <dd>Intermediate knowledge of Object-Oriented Programming and software construction.</dd>
             </dl>
           </div>
-          <!-- END PROGRAMMING LANGUAGES -->
 
-          <!-- ================================================
-               CATEGORY: WEB DEVELOPMENT
-               ================================================ -->
           <div class="skill-card fade-in">
             <div class="skill-card-header">
               <div class="skill-icon" aria-hidden="true">⬡</div>
-              <h3>Web Development</h3>
+              <h3>Web &amp; Frontend</h3>
             </div>
-
             <dl class="skills-dl">
-
-              <dt>HTML5 / CSS3</dt>
-              <dd>Semantic markup, responsive layouts, Flexbox and Grid, accessibility best practices.</dd>
-
               <dt>React.js</dt>
-              <dd>Component-based UI development with hooks, state management, and REST API integration.</dd>
-
-              <dt>Node.js / Express</dt>
-              <dd>RESTful API design, middleware architecture, and server-side JavaScript.</dd>
-
-              <dt>Django</dt>
-              <dd>Python-based MVC framework for rapid backend development and ORM usage.</dd>
-
-              <dt>PostgreSQL / MySQL</dt>
-              <dd>Database design, migrations, indexing strategies, and query optimization.</dd>
-
+              <dd>Component-based UI development, state management, and SPA architecture.</dd>
+              <dt>HTML5 / CSS3</dt>
+              <dd>Semantic markup, responsive layouts, and modern design principles.</dd>
+              <dt>Flutter</dt>
+              <dd>Building native-compiled applications for mobile devices.</dd>
             </dl>
           </div>
-          <!-- END WEB DEVELOPMENT -->
 
-          <!-- ================================================
-               CATEGORY: TOOLS & PLATFORMS
-               ================================================ -->
           <div class="skill-card fade-in">
             <div class="skill-card-header">
               <div class="skill-icon" aria-hidden="true">⚙</div>
-              <h3>Tools &amp; Platforms</h3>
+              <h3>Backend &amp; Databases</h3>
             </div>
-
             <dl class="skills-dl">
-
-              <dt>Git / GitHub</dt>
-              <dd>Version control, branching strategies, pull requests, and collaborative workflows.</dd>
-
-              <dt>Docker</dt>
-              <dd>Containerization of applications, Dockerfile authoring, and docker-compose orchestration.</dd>
-
-              <dt>Linux (Ubuntu)</dt>
-              <dd>Daily driver OS; comfortable with CLI, shell scripting, and server administration.</dd>
-
-              <dt>VS Code / CLion</dt>
-              <dd>Primary IDEs with extensive use of debugging tools, extensions, and integrated terminals.</dd>
-
-              <dt>Figma</dt>
-              <dd>UI/UX prototyping and wireframing for web and mobile applications.</dd>
-
+              <dt>MySQL</dt>
+              <dd>Relational database design, queries, and integration with PHP backends.</dd>
+              <dt>PostgreSQL &amp; Prisma</dt>
+              <dd>Advanced data modeling, schema migrations, and Type-Safe ORM interactions.</dd>
+              <dt>Firebase</dt>
+              <dd>Real-time database management and secure user authentication integration.</dd>
             </dl>
           </div>
-          <!-- END TOOLS & PLATFORMS -->
 
-          <!-- ================================================
-               CATEGORY: EMBEDDED SYSTEMS
-               ================================================ -->
           <div class="skill-card fade-in">
             <div class="skill-card-header">
               <div class="skill-icon" aria-hidden="true">◈</div>
-              <h3>Embedded Systems</h3>
+              <h3>DevOps &amp; Tools</h3>
             </div>
-
             <dl class="skills-dl">
-
-              <dt>STM32 (ARM Cortex-M)</dt>
-              <dd>Firmware development using HAL and CMSIS libraries; UART, SPI, I2C, and GPIO interfacing.</dd>
-
-              <dt>Arduino</dt>
-              <dd>Rapid prototyping for sensor integrations and robotics projects.</dd>
-
-              <dt>RTOS (FreeRTOS)</dt>
-              <dd>Task scheduling, queues, and semaphores for real-time embedded applications.</dd>
-
-              <dt>PCB Design (KiCad)</dt>
-              <dd>Basic schematic capture and PCB layout for custom embedded hardware.</dd>
-
-              <dt>CAN / MODBUS</dt>
-              <dd>Industrial communication protocols for embedded control systems.</dd>
-
+              <dt>Git &amp; GitHub</dt>
+              <dd>Version control, branching strategies, and collaborative workflow management.</dd>
+              <dt>Docker &amp; CI/CD</dt>
+              <dd>Currently specializing in containerization and automated deployment pipelines.</dd>
+              <dt>Linux &amp; XAMPP</dt>
+              <dd>Environment configuration, CLI commands, and server administration for web applications.</dd>
             </dl>
           </div>
-          <!-- END EMBEDDED SYSTEMS -->
 
         </div>
-        <!-- END skills-grid -->
-
       </div>
     </section>
-    <!-- END SKILLS SECTION -->
 
-    <!-- ----------------------------------------------------------
-         CERTIFICATIONS SECTION
-         Uses a <dl> where:
-           <dt> = certification name
-           <dd> = certificate image from assets folder
-    ---------------------------------------------------------- -->
     <section class="page-section certs-section" aria-labelledby="certs-heading">
       <div class="container">
-
         <div class="section-heading">
-          <h2 id="certs-heading">Certifications</h2>
+          <h2 id="certs-heading">Certifications &amp; Honors</h2>
         </div>
-
-        <!-- Description list for certifications -->
-        <!-- Each pair is: dt (name) followed by dd (image) -->
         <dl class="certs-dl">
 
-          <!-- ================================================
-               CERTIFICATION 1
-               Replace image src with your actual certificate image.
-               ================================================ -->
           <div class="fade-in">
-            <dt>AWS Cloud Practitioner</dt>
-            <dd>
-              <!-- Replace with: <img class="cert-img" src="assets/images/cert-aws.png" alt="AWS Cloud Practitioner Certificate" /> -->
-              <div class="cert-placeholder" role="img" aria-label="Certificate image placeholder">[ cert-aws.png ]</div>
-            </dd>
+            <dt>UNESCO Youth Meeting Representative</dt>
+            <dd>Selected as one of only 80 students across the Arab world to participate in the UNESCO regional youth summit.</dd>
           </div>
 
-          <!-- ================================================
-               CERTIFICATION 2
-               ================================================ -->
           <div class="fade-in">
-            <dt>Meta Front-End Developer</dt>
-            <dd>
-              <!-- Replace with: <img class="cert-img" src="assets/images/cert-meta.png" alt="Meta Front-End Developer Certificate" /> -->
-              <div class="cert-placeholder" role="img" aria-label="Certificate image placeholder">[ cert-meta.png ]</div>
-            </dd>
+            <dt>3rd Asian Universities Debating Championship</dt>
+            <dd>Ranked 4th place overall as a debater in Muscat, Oman, competing against university teams from 17 different countries.</dd>
           </div>
 
-          <!-- ================================================
-               CERTIFICATION 3
-               ================================================ -->
           <div class="fade-in">
-            <dt>Cisco CCNA (In Progress)</dt>
-            <dd>
-              <!-- Replace with: <img class="cert-img" src="assets/images/cert-ccna.png" alt="CCNA Certificate" /> -->
-              <div class="cert-placeholder" role="img" aria-label="Certificate image placeholder">[ cert-ccna.png ]</div>
-            </dd>
+            <dt>CS50: Introduction to Computer Science</dt>
+            <dd>Harvard University / edX — Comprehensive foundation in algorithms, data structures, and low-level memory management.</dd>
           </div>
 
-          <!-- ================================================
-               CERTIFICATION 4
-               ================================================ -->
           <div class="fade-in">
-            <dt>Google Data Analytics</dt>
-            <dd>
-              <!-- Replace with: <img class="cert-img" src="assets/images/cert-google.png" alt="Google Data Analytics Certificate" /> -->
-              <div class="cert-placeholder" role="img" aria-label="Certificate image placeholder">[ cert-google.png ]</div>
-            </dd>
+            <dt>DevOps Practical Training</dt>
+            <dd>CI/CD &amp; Docker (In Progress) — Focusing on automated deployment and containerized environments.</dd>
           </div>
 
         </dl>
-        <!-- END certs-dl -->
-
       </div>
     </section>
-    <!-- END CERTIFICATIONS SECTION -->
 
   </main>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
-        <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
+      <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/HammamRawabdeh" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="contact.html">Contact</a>
       </nav>

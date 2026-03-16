@@ -6,7 +6,10 @@
  *  2. Active nav link highlighting
  *  3. Scroll-triggered fade-in animations (IntersectionObserver)
  *  4. Scroll progress bar
- *  5. Navbar background on scroll
+ *  5. Navbar shadow on scroll
+ *  6. Hero staggered entrance animation
+ *  7. External link safety attributes
+ *  8. Footer year auto-update
  */
 
 /* ----------------------------------------------------------
@@ -16,126 +19,125 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------
-     2. MOBILE NAVIGATION TOGGLE
-     Toggles the .open class on both the button and
-     the nav-links list to show/hide on mobile.
+     2. CACHE SHARED DOM REFERENCES
+     Query once and reuse — avoids repeated DOM traversal.
   -------------------------------------------------------- */
   const navToggle  = document.querySelector('.nav-toggle');
   const navLinks   = document.querySelector('.nav-links');
+  const navbar     = document.querySelector('.navbar');
+  const progressBar = document.getElementById('progress-bar');
+  const heroContent = document.querySelector('.hero-content');
 
+  /* --------------------------------------------------------
+     3. MOBILE NAVIGATION TOGGLE
+     Toggles .open on the button and nav-links list to
+     show/hide the menu on mobile.
+  -------------------------------------------------------- */
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
 
-      // Update aria-expanded for accessibility
-      const isOpen = navToggle.classList.contains('open');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close nav when any link is clicked (mobile UX)
+    // Close nav when any link is clicked (improves mobile UX)
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', false);
+        navToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
 
   /* --------------------------------------------------------
-     3. ACTIVE NAV LINK HIGHLIGHTING
-     Compares the current page's filename to each link's href
-     and adds the .active class to the matching link.
+     4. ACTIVE NAV LINK HIGHLIGHTING
+     Compares the current page filename to each link's href
+     and applies .active to the matching link.
+     Strips any query strings or hash fragments for accuracy.
   -------------------------------------------------------- */
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPage = window.location.pathname.split('/').pop().split('?')[0].split('#')[0] || 'index.html';
 
   document.querySelectorAll('.nav-links a').forEach(link => {
-    const linkPage = link.getAttribute('href').split('/').pop();
+    const linkPage = link.getAttribute('href').split('/').pop().split('?')[0];
     if (linkPage === currentPage) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
   /* --------------------------------------------------------
-     4. SCROLL-TRIGGERED FADE-IN ANIMATIONS
-     Uses IntersectionObserver to add the .visible class
-     to .fade-in elements when they enter the viewport.
-     This triggers the CSS transition defined in styles.css.
+     5. SCROLL-TRIGGERED FADE-IN ANIMATIONS
+     Uses IntersectionObserver for efficient visibility checks.
+     Applies .visible to trigger the CSS transition, then
+     unobserves to free memory (one-shot animation).
   -------------------------------------------------------- */
   const fadeEls = document.querySelectorAll('.fade-in');
 
   if (fadeEls.length > 0) {
-    const observer = new IntersectionObserver(
+    const fadeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // Stop observing once visible (one-time animation)
-            observer.unobserve(entry.target);
+            fadeObserver.unobserve(entry.target); // one-time trigger
           }
         });
       },
       {
-        threshold: 0.12,    // Trigger when 12% of element is visible
-        rootMargin: '0px 0px -40px 0px'  // Slight bottom offset for natural feel
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
       }
     );
 
-    fadeEls.forEach(el => observer.observe(el));
+    fadeEls.forEach(el => fadeObserver.observe(el));
   }
 
   /* --------------------------------------------------------
-     5. SCROLL PROGRESS BAR
-     Reads window.scrollY / document scroll height to
-     calculate how far down the page the user has scrolled,
-     then updates the width of #progress-bar.
+     6. SCROLL HANDLERS (progress bar + navbar shadow)
+     requestAnimationFrame throttling ensures scroll events
+     only trigger one DOM update per animation frame —
+     prevents layout thrashing on high-frequency scroll.
   -------------------------------------------------------- */
-  const progressBar = document.getElementById('progress-bar');
+  let scrollRafId = null;
 
-  if (progressBar) {
-    const updateProgress = () => {
+  const handleScroll = () => {
+    // Progress bar
+    if (progressBar) {
       const scrollTop    = window.scrollY;
       const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       progressBar.style.width = `${scrollPercent}%`;
-    };
+    }
 
-    // Use passive listener for performance
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress(); // Initial call in case page is already scrolled
-  }
+    // Navbar depth shadow
+    if (navbar) {
+      navbar.style.boxShadow = window.scrollY > 20
+        ? '0 4px 30px rgba(0, 0, 0, 0.4)'
+        : 'none';
+    }
+  };
 
-  /* --------------------------------------------------------
-     6. NAVBAR SCROLL EFFECT
-     Adds a subtle shadow to the navbar once user scrolls
-     past the top, enhancing depth on scroll.
-  -------------------------------------------------------- */
-  const navbar = document.querySelector('.navbar');
+  const onScroll = () => {
+    if (scrollRafId) return; // skip if a frame is already queued
+    scrollRafId = requestAnimationFrame(() => {
+      handleScroll();
+      scrollRafId = null;
+    });
+  };
 
-  if (navbar) {
-    const handleNavbarScroll = () => {
-      if (window.scrollY > 20) {
-        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
-      } else {
-        navbar.style.boxShadow = 'none';
-      }
-    };
-
-    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  handleScroll(); // initialise on load in case page is already scrolled
 
   /* --------------------------------------------------------
-     7. HERO ANIMATIONS (index.html only)
-     Staggers the entrance of hero child elements on load.
-     Uses CSS transitions — JS just triggers them with delay.
+     7. HERO ENTRANCE ANIMATION (index.html only)
+     Staggers reveal of .fade-in children inside .hero-content.
+     A short timeout ensures CSS transitions are ready before
+     the .visible class is applied.
   -------------------------------------------------------- */
-  const heroContent = document.querySelector('.hero-content');
-
   if (heroContent) {
-    const heroChildren = heroContent.querySelectorAll('.fade-in');
-    heroChildren.forEach((el, i) => {
-      // Small timeout to ensure CSS transitions are ready
+    heroContent.querySelectorAll('.fade-in').forEach((el, i) => {
       setTimeout(() => {
         el.classList.add('visible');
       }, 100 + i * 120);
@@ -143,9 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------
-     8. SMOOTH EXTERNAL LINK HANDLING
+     8. EXTERNAL LINK SAFETY
      Adds target="_blank" and rel safety attributes to any
-     external link found on the page.
+     off-site link found on the page, preventing tabnapping.
   -------------------------------------------------------- */
   document.querySelectorAll('a[href^="http"]').forEach(link => {
     if (!link.href.includes(window.location.hostname)) {
@@ -155,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------
-     9. YEAR AUTO-UPDATE IN FOOTER
-     Finds any element with class .footer-year and fills it
-     with the current year, avoiding manual updates.
+     9. FOOTER YEAR AUTO-UPDATE
+     Populates .footer-year with the current year, so the
+     copyright notice never needs a manual annual edit.
   -------------------------------------------------------- */
   const yearEl = document.querySelector('.footer-year');
   if (yearEl) {

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ============================================================
-       contact.html — Contact Page
-       Displays links to GitHub, Email, and LinkedIn using
-       styled card components with SVG icons.
-       ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact [Hammam Rawabdeh] — GitHub, Email, LinkedIn." />
+  <meta name="description" content="Contact Hammam Rawabdeh — GitHub, Email, LinkedIn." />
+  <meta name="theme-color" content="#0d0d0d" />
+
   <title>Contact — Hammam Rawabdeh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" />
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -17,12 +18,9 @@
 
   <div id="progress-bar" aria-hidden="true"></div>
 
-  <!-- ============================================================
-       NAVIGATION BAR
-       ============================================================ -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
-        <a href="index.html" class="nav-logo">Hammam<span>.</span>Rawabdeh</a>
+      <a href="index.html" class="nav-logo">Hammam<span>.</span>Rawabdeh</a>
       <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -30,7 +28,7 @@
         <li><a href="skills.html">Skills</a></li>
         <li><a href="leadership.html">Leadership</a></li>
         <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -40,9 +38,6 @@
 
   <main>
 
-    <!-- ----------------------------------------------------------
-         PAGE HERO BANNER
-    ---------------------------------------------------------- -->
     <header class="page-hero">
       <div class="container">
         <p class="label fade-in">07 / Contact</p>
@@ -54,11 +49,6 @@
       </div>
     </header>
 
-    <!-- ----------------------------------------------------------
-         CONTACT LINKS SECTION
-         Each platform is a styled card link (.contact-card).
-         Cards include: icon, name, description, and arrow indicator.
-    ---------------------------------------------------------- -->
     <section class="page-section" aria-labelledby="contact-heading">
       <div class="container">
 
@@ -68,115 +58,70 @@
 
         <div class="contact-grid">
 
-          <!-- ================================================
-               GITHUB CARD
-               Replace href with your GitHub profile URL.
-               ================================================ -->
-          <a
-            href="https://github.com/yourusername"
-            class="contact-card fade-in"
-            aria-label="Visit my GitHub profile"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <!-- GitHub SVG Icon -->
+          <a href="https://github.com/HammamRawabdeh" class="contact-card fade-in" aria-label="Visit my GitHub profile (opens in new tab)" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
               </svg>
             </div>
-
             <h3>GitHub</h3>
             <p>Browse my open-source projects, contributions, and code repositories.</p>
             <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-accent);">
-              github.com/yourusername
+              github.com/HammamRawabdeh
             </p>
-
-            <!-- Arrow indicator -->
             <div class="contact-arrow" aria-hidden="true">→</div>
-
           </a>
-          <!-- END GITHUB CARD -->
 
-          <!-- ================================================
-               EMAIL CARD
-               Replace href with your actual email address.
-               ================================================ -->
-          <a
-            href="mailto:rawabdeh.hammam@gmail.com"
-            class="contact-card fade-in"
-            aria-label="Send me an email"
-          >
-            <!-- Email SVG Icon -->
+          <a href="mailto:rawabdeh.hammam@gmail.com" class="contact-card fade-in" aria-label="Send me an email">
             <div class="contact-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
             </div>
-
             <h3>Email</h3>
             <p>For professional inquiries, internship opportunities, or project collaborations.</p>
             <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-accent);">
-                rawabdeh.hammam@gmail.com
+              rawabdeh.hammam@gmail.com
             </p>
-
             <div class="contact-arrow" aria-hidden="true">→</div>
-
           </a>
-          <!-- END EMAIL CARD -->
 
-          <!-- ================================================
-               LINKEDIN CARD
-               Replace href with your LinkedIn profile URL.
-               ================================================ -->
-          <a
-            href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/"
-            class="contact-card fade-in"
-            aria-label="Visit my LinkedIn profile"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <!-- LinkedIn SVG Icon -->
+          <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" class="contact-card fade-in" aria-label="Visit my LinkedIn profile (opens in new tab)" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
                 <rect x="2" y="9" width="4" height="12"/>
                 <circle cx="4" cy="4" r="2"/>
               </svg>
             </div>
-
             <h3>LinkedIn</h3>
             <p>Connect with me professionally — view my experience, education, and endorsements.</p>
             <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-accent);">
-                linkedin.com/in/hammam-rawabdeh-70a239245/
+              linkedin.com/in/hammam-rawabdeh-70a239245
             </p>
-
             <div class="contact-arrow" aria-hidden="true">→</div>
-
           </a>
-          <!-- END LINKEDIN CARD -->
 
         </div>
-        <!-- END contact-grid -->
 
-        <!-- ----------------------------------------------------------
-             AVAILABILITY NOTE
-             A brief status note below the contact cards.
-        ---------------------------------------------------------- -->
         <div style="margin-top: var(--space-xxl); padding-top: var(--space-xl); border-top: var(--border);">
           <div class="fade-in" style="display:flex; align-items:center; gap: 0.75rem;">
-            <!-- Green availability dot -->
+            <!--
+              Status indicator: aria-hidden on the decorative dot.
+              The text beside it provides the full accessible meaning.
+            -->
             <span style="
               display: inline-block;
               width: 8px; height: 8px;
               border-radius: 50%;
               background: #4ade80;
-              box-shadow: 0 0 0 3px rgba(74,222,128,.2);
+              box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+              flex-shrink: 0;
             " aria-hidden="true"></span>
             <p style="max-width: none; margin: 0; color: var(--color-text-muted); font-size: 0.9rem;">
-              Currently available for internships and part-time opportunities —
-              <span style="color: var(--color-text);">open to remote and on-site roles.</span>
+              Currently available for internships —
+              <span style="color: var(--color-text);">open to remote and on-site roles in SWE, Backend, and DevOps.</span>
             </p>
           </div>
         </div>
@@ -186,14 +131,11 @@
 
   </main>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
-        <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
+      <p class="footer-copy">&copy; <span class="footer-year"></span> Hammam Rawabdeh — All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/HammamRawabdeh" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/hammam-rawabdeh-70a239245/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="contact.html">Contact</a>
       </nav>
