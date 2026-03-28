@@ -1,8 +1,7 @@
 # Hammam Rawabdeh | Personal Portfolio
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://hammamrawabdeh.github.io/portfolio/)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/HammamRawabdeh)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/hammam-rawabdeh-70a239245)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-007BFF?style=for-the-badge)](https://hammamrawabdeh.github.io/portfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)](https://github.com/HammamRawabdeh)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/hammam-rawabdeh-70a239245)
 
 A responsive, custom-built personal portfolio website designed to showcase my journey as a Software Engineering student, my technical projects, and my leadership experience. 
 
